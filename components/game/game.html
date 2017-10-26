@@ -1,0 +1,28 @@
+<h1>{{ vm.level.toUpperCase() }}</h1>
+<div ng-if="!vm.started">
+  <span class="start" ng-click="vm.start()"></span>
+</div>
+<div ng-if="vm.started">
+  <div class="timer" ng-if="vm.started">{{ vm.timeElapsed }}</div>
+  <div class="field">
+    <div class="row" ng-repeat="row in vm.userRows track by $index" ng-init="rowIndex = $index">
+      <div class="cell" 
+        ng-repeat="bit in row track by $index"
+        ng-init="cellIndex = $index" 
+        ng-class="{ active : bit === 1 }" 
+        ng-click="!vm.finished ? vm.userRows[rowIndex][cellIndex] === 1 ? vm.userRows[rowIndex][cellIndex] = 0 : vm.userRows[rowIndex][cellIndex] = 1 : null">{{vm.userRows[rowIndex][cellIndex]}}</div>
+
+      <div class="cell goal" ng-class="{ 'done' : vm.compareHorizontalRows(vm.userRows[rowIndex],vm.solutionRows[rowIndex]) }">{{ vm.hsums[rowIndex] }}</div>
+      
+    </div>
+
+    <div class="row">
+      <div class="cell goal" ng-repeat="sum in vm.vsums track by $index" ng-class="{ 'done' : vm.compareVerticalRows($index) }">{{ sum }}</div>
+      <div class="cell invisible"></div>
+    </div>
+  </div>
+</div>
+<div class="post-game" >
+  <div class="fa fa-home" ui-sref="home"></div>
+  <div class="fa fa-refresh" ng-if="vm.finished" ng-click="vm.start()"></div>
+</div>

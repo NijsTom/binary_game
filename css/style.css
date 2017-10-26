@@ -1,0 +1,120 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  background-color: #232323;
+}
+h1 {
+  font-family: "Comfortaa";
+  font-size: 300%;
+  font-weight: bold;
+  color: #e67e22;
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 5rem;
+}
+div.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+div.menu span {
+  font-family: "Lato";
+  padding: 1rem .5rem;
+  color: #eee;
+  border: 3px solid #eee;
+  width: 10rem;
+  text-align: center;
+  letter-spacing: 1.2px;
+  border-radius: .5rem;
+  user-select: none;
+  cursor: pointer;
+  transition: all .2s ease;
+  margin: 1rem auto;
+}
+div.menu span:hover {
+  border: 3px solid #e67e22;
+  background: #e67e22;
+  color: #232323;
+}
+span.start {
+  border: 5px solid #e67e22;
+  border-radius: 50%;
+  position: relative;
+  padding: 1rem;
+  width: 50px;
+  display: block;
+  height: 50px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+span.start::after {
+  transition: all .2s ease;
+  content: '';
+  position: absolute;
+  top: 17px;
+  left: 30px;
+  width: 0; 
+  height: 0; 
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 30px solid white;
+}
+span.start:hover::after {
+  border-left: 30px solid #e67e22;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+}
+.row {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  margin: 3px 0;
+}
+.cell {
+  background: #2980b9;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  margin: 0 3px;
+  font-family: "Lato";
+  font-size: 1.4rem;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  user-select: none;
+  cursor: pointer;
+}
+.cell.goal {
+  background: #9b59b6;
+}
+.cell.goal.done {
+  background: #27ae60;
+}
+.cell.invisible {
+  visibility: hidden;
+}
+.cell.active {
+  background: #e67e22;
+}
+.timer {
+  font-size: 3rem;
+  color: white;
+  font-family: "Lato";
+  text-align: center;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+.post-game {
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 1rem;
+  user-select: none;
+}
